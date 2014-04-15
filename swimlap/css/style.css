@@ -1,0 +1,103 @@
+/* 
+    Document   : style
+    Created on : 13 avr. 2014, 09:51:52
+    Author     : perle
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: '', cursive;
+    background: url("../img/background_full.png") repeat #046675;
+}
+
+.clear {
+    clear: both;
+}
+
+header {
+    width: 80%;
+    padding: 0 10%;
+    background-color: #fff;
+    border-bottom: 5px solid #000;
+}
+
+header span {
+    font-size: 30px;
+    float: right;
+    margin: 2% 0;
+}
+
+#content {
+    width: 80%;
+    margin: 0 10%;
+}
+
+#form_connect {
+    margin: 5% 20%;
+}
+
+fieldset {
+    width: 50%;
+    margin: 0;
+    padding: 2% 5%;
+    border: 1px solid #212121;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: url("../img/background_transparent.png") repeat #48999E;
+}
+
+input:not([type="submit"]), textarea {
+    outline: none;
+    display: block;
+    width: 70%;
+    padding: 2% 3%;
+    border: 1px solid #212121;
+    margin: 3% 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-transition: -moz-background 0.2s linear, -moz-box-shadow 0.6s linear;
+    -o-transition: -o-background 0.2s linear, -o-box-shadow 0.6s linear;
+    -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
+    transition: background 0.2s linear, box-shadow 0.6s linear;
+}
+
+.button {
+    background-color: #046675;
+    border: 1px solid #212121;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    color: #fff;
+    height: 30px;
+    margin: 0;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background-color: #48999E;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border-top: 5px solid #000;
+    bottom: 0px;
+}
+
