@@ -14,37 +14,78 @@ body {
     height: 100%;
     margin: 0 auto;
     padding: 0;
-    font-family: '', cursive;
+    font-family: 'Sniglet', cursive;
     background: url("../img/background_full.png") repeat #046675;
+    color: #FFF;
 }
 
 .clear {
     clear: both;
 }
 
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+
 header {
     width: 80%;
     padding: 0 10%;
-    background-color: #fff;
-    border-bottom: 5px solid #000;
+    background-color: #FFF;
+    border-bottom: 5px solid #212121;
 }
 
-header span {
+header #menu {
     font-size: 30px;
-    float: right;
     margin: 2% 0;
 }
 
+h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/*******Icone*********/
+span.icon {
+    background-image: url(../img/sprite_icon.png);
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin-left:10px;
+    margin-right: 5px;
+}
+
+span.stat {
+    background-position: 0 0;
+}
+
+span.setting {
+    background-position: -74px 0;
+}
+
+span.stat:hover, span.stat.active {
+    background-position: -37px 0;
+}
+
+span.setting:hover, span.setting.active {
+    background-position: -111px 0;
+}
+/********************/
+
 #content {
     width: 80%;
-    margin: 0 10%;
+    margin: 2% 10% 10%;
 }
 
-#form_connect {
-    margin: 5% 20%;
+form {
+    margin: 2% 15%;
+    display: none;
 }
 
-fieldset {
+fieldset, .container {
     width: 50%;
     margin: 0;
     padding: 2% 5%;
@@ -55,13 +96,27 @@ fieldset {
     background: url("../img/background_transparent.png") repeat #48999E;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px;
+    cursor: pointer;
+}
+
+li:hover {
+    color: #212121;
+}
+
 input:not([type="submit"]), textarea {
     outline: none;
     display: block;
     width: 70%;
-    padding: 2% 3%;
+    padding: 1%;
     border: 1px solid #212121;
-    margin: 3% 0;
+    margin: 1% 0 2%;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -90,14 +145,20 @@ input:not([type="submit"]), textarea {
 }
 
 .button:hover {
-    background-color: #48999E;
+    background-color: #9E0016;
 }
 
 footer {
-    position: absolute;
-    width: 100%;
-    background-color: #fff;
-    border-top: 5px solid #000;
+    color: #212121;
+    position: fixed;
+    width: 98%;
+    background-color: #FFF;
+    border-top: 5px solid #212121;
     bottom: 0px;
+    padding: 1%;
+}
+
+footer p {
+    margin: 0;
 }
 
