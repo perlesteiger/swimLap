@@ -7,9 +7,9 @@
         <div class="clear"></div>
         <div id="content">
             <center>
-                <div class="container">
-                    <span>test</span>
-                </div>
+                <?php include CONTROLLER."search_repartition.php"; ?>
+                <?php include CONTROLLER."search_performance.php"; ?>
+                <?php include CONTROLLER."search_planning.php"; ?>
             </center>
         </div>
         <?php include INCLUDES."footer.php"?>

@@ -10,16 +10,19 @@
                 <div class="container">
                     <?php include INCLUDES."list_setting.php"?>
                 </div>
-                <?php include CONTROLLER."crud_general.php"?>
-                <?php include CONTROLLER."crud_data.php"?>
-                <?php include CONTROLLER."crud_competition.php"?>
-                <?php include CONTROLLER."crud_swimmer.php"?>
-                <?php include CONTROLLER."crud_record.php"?>
+                <div id="setting-forms">
+                    <?php include CONTROLLER."crud_general.php"?>
+                    <?php include CONTROLLER."crud_data.php"?>
+                    <?php include CONTROLLER."crud_competition.php"?>
+                    <?php include CONTROLLER."crud_swimmer.php"?>
+                    <?php include CONTROLLER."crud_record.php"?>
+                </div>
             </center>
         </div>
         <?php include INCLUDES."footer.php"?>
         <script>
             $("header span.setting").addClass('active');
+            $("#sous-menu").hide();
         </script>
     </BODY>
 </HTML>

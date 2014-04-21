@@ -31,18 +31,38 @@ body {
     float: right;
 }
 
+.active {
+    color: #9E0016;
+}
+
 header {
+    position: fixed;
+    top: 0;
     width: 80%;
     padding: 0 10%;
     background-color: #FFF;
     border-bottom: 5px solid #212121;
+    z-index: 10;
 }
 
 header #menu {
-    font-size: 30px;
     margin: 2% 0;
 }
 
+header #sous-menu {
+    margin: 2%;
+    color: #212121;
+}
+
+header #sous-menu li {
+    display: inline;
+    font-size: 20px;
+}
+
+header #sous-menu li:hover {
+    color: #9E0016;
+}
+    
 h3 {
     font-weight: normal;
     text-transform: uppercase;
@@ -77,16 +97,16 @@ span.setting:hover, span.setting.active {
 
 #content {
     width: 80%;
-    margin: 2% 10% 10%;
+    margin: 8% 10% 10%;
 }
 
-form {
+#setting-forms form, #stat-performance, #stat-planning {
     margin: 2% 15%;
     display: none;
 }
 
 fieldset, .container {
-    width: 50%;
+    width: 55%;
     margin: 0;
     padding: 2% 5%;
     border: 1px solid #212121;
@@ -94,6 +114,10 @@ fieldset, .container {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     background: url("../img/background_transparent.png") repeat #48999E;
+}
+
+#stat-performance fieldset, #stat-planning fieldset {
+    width: 65%;
 }
 
 ul {
@@ -110,10 +134,29 @@ li:hover {
     color: #212121;
 }
 
-input:not([type="submit"]), textarea {
+#form_data .form_cancel {
+    margin-top: 10px;
+}
+
+#setting-forms input:not([type="submit"]), select {
     outline: none;
     display: block;
     width: 70%;
+    padding: 1%;
+    border: 1px solid #212121;
+    margin: 1% 0 2%;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-transition: -moz-background 0.2s linear, -moz-box-shadow 0.6s linear;
+    -o-transition: -o-background 0.2s linear, -o-box-shadow 0.6s linear;
+    -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
+    transition: background 0.2s linear, box-shadow 0.6s linear;
+}
+
+input:not([type="submit"]) {
+    outline: none;
+    width: auto;
     padding: 1%;
     border: 1px solid #212121;
     margin: 1% 0 2%;
@@ -131,7 +174,7 @@ input:not([type="submit"]), textarea {
     border: 1px solid #212121;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-    color: #fff;
+    color: #FFF;
     height: 30px;
     margin: 0;
     padding: 4px 10px;
@@ -148,17 +191,46 @@ input:not([type="submit"]), textarea {
     background-color: #9E0016;
 }
 
+#import button {
+    background-color: #48999E;
+}
+
+#import {
+    position:relative;
+    width:250px;
+    height:32px;
+    overflow:hidden;
+    margin: 1%;
+}
+
+#import input {
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:60px;
+    opacity:0;
+    -moz-opacity:0;
+    filter:alpha(opacity=0);
+    cursor:pointer;
+    text-align:right;
+}
+
 footer {
     color: #212121;
     position: fixed;
-    width: 98%;
+    width: 100%;
     background-color: #FFF;
     border-top: 5px solid #212121;
     bottom: 0px;
-    padding: 1%;
+    padding: 5px 0;
 }
 
 footer p {
     margin: 0;
 }
 
+@media screen and (max-width: 1040px) { #content { margin-top: 15%; } }/*trouver pour form*/
+@media screen and (max-width: 690px) { #content { margin-top: 22%; } input:not([type="submit"]) { display: block; } }
+@media screen and (max-width: 580px) { #content { margin-top: 25%; } }
+@media screen and (max-width: 580px) { #content { margin-top: 40%; } }
+@media screen and (max-width: 330px) { #content { margin-top: 65%; } }
