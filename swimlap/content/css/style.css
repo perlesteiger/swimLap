@@ -191,6 +191,8 @@ input:not([type="submit"]) {
     background-color: #9E0016;
 }
 
+a.button { height: 20px; font-family: arial; }
+
 #import button {
     background-color: #48999E;
 }

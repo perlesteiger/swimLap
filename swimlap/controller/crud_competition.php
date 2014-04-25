@@ -26,6 +26,6 @@
         <label>Saison :</label>
         <input type="text" id="competition_season" required/>
         <input type="submit" class="button" value="Ajouter"/>
-        <button class="button form_cancel">Annuler</button>
+        <a class="button form_cancel">Annuler</a>
     </fieldset>
 </form>

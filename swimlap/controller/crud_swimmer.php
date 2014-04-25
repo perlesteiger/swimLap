@@ -16,6 +16,6 @@
         <label>Date de naissance :</label>
         <input type="text" id="swimmer_birth" required/>
         <input type="submit" class="button" value="Ajouter"/>
-        <button class="button form_cancel">Annuler</button>
+        <a class="button form_cancel">Annuler</a>
     </fieldset>
 </form>

@@ -16,6 +16,6 @@
         </select>
         <input type="hidden" id="record_pool"/>
         <input type="submit" class="button" value="Ajouter"/>
-        <button class="button form_cancel">Annuler</button>
+        <a class="button form_cancel">Annuler</a>
     </fieldset>
 </form>

@@ -10,6 +10,6 @@
         <!--Voir avec un select si ttes les competitions en liste ou recherche auto en mm tmps qu on tape-->
         <input type="text" id="data_export"/>
         <input type="submit" name="export" class="button" value="Exporter"/><br/>
-        <button class="button form_cancel">Annuler</button>
+        <a class="button form_cancel">Annuler</a>
     </fieldset>
 </form>
