@@ -42,6 +42,14 @@ $(document).ready ( function () {
             'color': '#FFF'
         });
     });
+    
+    $('#distribution_swimmer').autocomplete({
+        source : 'recoverSwimmer_autocomplete.php'
+    });
+    
+    $('#distribution_competition').autocomplete({
+        source : 'recoverCompetition_autocomplete.php'
+    });
 });
 
 

@@ -1,5 +1,5 @@
-<!--mettre une vue avant avec vue de la liste (modifier/supprimer et un truc ajouter-->
-<!--garder ce formulaaire pour modifier/supprimer-->
+<!--mettre une vue avant avec vue de la liste (truc ajouter)-->
+<!--function recoverSwimmer-->
 <form id="form_swimmer" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <fieldset>
         <label>Nom du nageur :</label>

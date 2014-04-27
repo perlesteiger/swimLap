@@ -1,5 +1,5 @@
-<!--mettre une vue avant avec vue de la liste (modifier/supprimer et un truc ajouter-->
-<!--garder ce formulaaire pour modifier/supprimer-->
+<!--mettre une vue avant avec vue de la liste (un truc ajouter)-->
+<!--recuperer t_j_record_rec/rec_swimtime_?, rec_rac_id, rec_swim_id => t_e_race_rac/rac_style, t_e_swimmer_swi/swi_firstname swi_lastname-->
 <form id="form_record" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <fieldset>
         <label>Nouveau record :</label>

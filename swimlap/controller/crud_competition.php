@@ -1,5 +1,5 @@
-<!--mettre une vue avant avec vue de la liste (modifier/supprimer et un truc ajouter-->
-<!--garder ce formulaaire pour modifier/supprimer-->
+<!--mettre une vue avant avec vue de la liste (un truc ajouter)-->
+<!--recuprer t_e_meeting_mee/mee_name, mee_start_date, mee_city-->
 <form id="form_competition" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <fieldset>
         <label>Nom de la compétition :</label>

@@ -1,4 +1,4 @@
-<!--recuperer dans bdd :: t_e_club_clu/clu_name-->
+<!--recuperation nom du club et pouvoir enregistrer => t_e_club_clu/clu_name-->
 <form id="form_general" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <fieldset>
         <label>Club :</label>
