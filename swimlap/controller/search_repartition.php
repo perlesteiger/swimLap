@@ -5,9 +5,9 @@
     <form id="form_distribution" method="post" action="<?php echo MODEL;?>fonctions_request_stat.php">
         <fieldset>
             <label>Nageur :</label>
-            <input type="text" id="distribution_swimmer"/>
+            <input type="text" class="search_swimmer" id="distribution_swimmer"/>
             <label>Compétition :</label>
-            <input type="text" id="distribution_competition"/>
+            <input type="text" class="search_competition" id="distribution_competition"/>
             <input type="submit" class="button" value="Recherche"/>
         </fieldset>
     </form>

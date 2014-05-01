@@ -1,20 +1,17 @@
 <?php
-include fonctions_request_stat.php;
+include 'fonctions_crud.php';
 
-$bdd = connect_bdd();
+connect_bdd();
 
-$term = $_GET['term'];
+$term = $_GET['q'];
 
-$requete = $bdd->prepare('SELECT swi_firstname, swi_lastname FROM t_e_swimmer_swi WHERE swi_lastname LIKE :term OR swi_firstname LIKE :term'); 
-$requete->execute(array('term' => '%'.$term.'%'));
+$sql = "SELECT swi_firstname, swi_lastname FROM t_e_swimmer_swi WHERE swi_lastname LIKE '%".$term."%' OR swi_firstname LIKE '%".$term."%'"; 
+$result = pg_query($sql) or die(pg_last_error());
 
-$array = array(); // on créé le tableau
-
-while($donnee = $requete->fetch()) // on effectue une boucle pour obtenir les données
+while($donnee = pg_fetch_object($result)) // on effectue une boucle pour obtenir les données
 {
-    array_push($array, $donnee['swi_lastname']." ".$donnee['swi_firstname']); // et on ajoute celles-ci à notre tableau
+    $tmp=  utf8_encode($donnee->swi_lastname."|".$donnee->swi_firstname.'');
+    echo "$tmp\n";
 }
-
-echo json_encode($array); // il n'y a plus qu'à convertir en JSON
 
 ?>

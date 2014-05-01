@@ -1,37 +1,38 @@
 <?php
-// Connexion, sélection de la base de données
-function connect_bdd() {
-    $host = 'localhost';
-    $dbname = 'postgres';
-    $user = 'postgres';
-    $password = 'postgres';
+include '../view/var.prepend.php';
+include MODEL.'fonctions_crud.php';
 
-    $dbconn = pg_connect("host=".$host." 
-                          dbname=".$dbname." 
-                          user=".$user." 
-                          password=".$password)
-        or die('Connexion impossible : ' . pg_last_error());
-    
-    return $dbconn;
-}
+$type = $_POST['type_form'];
 
-function recoverSwimmer() {
-    
-    $dbconn = connect_bdd();
-    
-    // Exécution de la requête SQL
-    $query = 'SELECT swi_firstname, swi_lastname FROM t_e_swimmer_swi';
-    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
-    
-    $list_swimmer = array();
-    
-    while ($line = pg_fetch_object($result)) {
-        array_push($list_swimmer, $line->swi_lastname." ".$line->swi_firstname);
-    }
-    
-    // Ferme la connexion
-    pg_close($dbconn);  
-    
-    return $list_swimmer;
+switch ($type) {
+    case 'general':
+        $new_name = $_POST['general_club'];
+        $id = $_POST['general_id'];
+        
+        $update_name = updateClub($new_name, $id);
+
+        //ajouter condition si non reussi
+        header("Location: ".VIEW."result.php?form=general&new=".$new_name);
+
+        break;
+
+    case 'swimmer':
+        $lastname = $_POST['swimmer_name'];
+        $firstname = $_POST['swimmer_firstname'];
+        $id = $_POST['swimmer_id'];
+        $birth = $_POST['swimmer_birth'];
+        $sexe = $_POST['select_sexe'];
+        
+        $tab_swimmer = array();
+        
+        $add_swimmer = addSwimmer($lastname, $firstname, $id, $sexe, $birth);
+
+        //ajouter condition si non reussi
+        header("Location: ".VIEW."result.php?form=swimmer&name=".$lastname."&first=".$firstname."&id=".$id."&birth=".$birth."&genre=".$sexe);
+
+        break;
+    //a faire pour compet/record
+    default:
+        break;
 }
 ?>

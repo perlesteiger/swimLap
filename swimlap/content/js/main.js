@@ -7,12 +7,19 @@ $(document).ready ( function () {
        var id = $(this).attr('class');
        
        $(".container").hide();
-       $('#form_'+id).show();
+       $('#section_'+id).show();
     });
     $(".form_cancel").click( function() {
         
        $(".container").show();
-       $('form').hide();
+       $('.section').hide();
+       $(this).parents("form").hide();
+    });
+    $(".section button").click( function() {
+        var id = $(this).attr('name');
+        
+        $(this).parent().hide();
+        $("#form_"+id).show();
     });
     
     //affichage stat
@@ -43,12 +50,39 @@ $(document).ready ( function () {
         });
     });
     
-    $('#distribution_swimmer').autocomplete({
-        source : 'recoverSwimmer_autocomplete.php'
+    function formatItem(row) {
+        return row[0] + " " + row[1];
+    }
+    function formatResult(row) {
+        return "";
+    }
+
+    //si retour attendu au clic
+    $(".search_swimmer").result(function(event, data, formatted) {	
+        if (data){
+           //recuperation des data[1];
+        }
+    });
+    $('.search_swimmer').autocomplete ('../model/recoverSwimmer_autocomplete.php', {
+        max:50,
+        width: 500,
+        matchContains: true,
+        formatItem: formatItem,
+        formatResult: formatResult
     });
     
-    $('#distribution_competition').autocomplete({
-        source : 'recoverCompetition_autocomplete.php'
+    //si retour attendu au clic
+    $(".search_competition").result(function(event, data, formatted) {	
+        if (data){
+           //recuperation des data[1];
+        }
+    });
+    $('.search_competition').autocomplete ('../model/recoverCompetition_autocomplete.php', {
+        max:50,
+        width: 500,
+        matchContains: true,
+        formatItem: formatItem,
+        formatResult: formatResult
     });
 });
 

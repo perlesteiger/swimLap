@@ -1,20 +1,17 @@
 <?php
-include fonctions_request_stat.php;
+include 'fonctions_crud.php';
 
-$bdd = connect_bdd();
+connect_bdd();
 
-$term = $_GET['term'];
+$term = $_GET['q'];
 
-$requete = $bdd->prepare('SELECT mee_name FROM t_e_meeting_mee WHERE mee_name LIKE :term OR mee_name LIKE :term'); 
-$requete->execute(array('term' => '%'.$term.'%'));
+$sql = "SELECT mee_name, mee_city FROM t_e_meeting_mee WHERE mee_name LIKE '%".$term."%' OR mee_city LIKE '%".$term."%'"; 
+$result = pg_query($sql) or die(pg_last_error());
 
-$array = array(); // on créé le tableau
-
-while($donnee = $requete->fetch()) // on effectue une boucle pour obtenir les données
+while($donnee = pg_fetch_object($result)) // on effectue une boucle pour obtenir les données
 {
-    array_push($array, $donnee['mee_name']); // et on ajoute celles-ci à notre tableau
+    $tmp=  utf8_encode($donnee->mee_name."|".$donnee->mee_city.'');
+    echo "$tmp\n";
 }
-
-echo json_encode($array); // il n'y a plus qu'à convertir en JSON
 
 ?>
