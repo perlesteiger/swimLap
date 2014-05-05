@@ -50,6 +50,7 @@ $(document).ready ( function () {
         });
     });
     
+    /*************autocompletion******************/
     function formatItem(row) {
         return row[0] + " " + row[1];
     }
@@ -84,6 +85,7 @@ $(document).ready ( function () {
         formatItem: formatItem,
         formatResult: formatResult
     });
+    /******************************************************/
 });
 
 

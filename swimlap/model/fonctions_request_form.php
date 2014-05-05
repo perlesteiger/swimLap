@@ -23,15 +23,26 @@ switch ($type) {
         $birth = $_POST['swimmer_birth'];
         $sexe = $_POST['select_sexe'];
         
-        $tab_swimmer = array();
-        
         $add_swimmer = addSwimmer($lastname, $firstname, $id, $sexe, $birth);
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=swimmer&name=".$lastname."&first=".$firstname."&id=".$id."&birth=".$birth."&genre=".$sexe);
 
         break;
-    //a faire pour compet/record
+    case 'record':
+        $record = $_POST['record_new'];
+        $name = $_POST['record_swimmer'];
+        $dist = $_POST['record_long'];
+        $race = $_POST['record_swim'];
+        $pool = $_POST['select_pool'];
+        
+        $add_record = addRecord($record, $dist, $name, $race, $pool);
+
+        //ajouter condition si non reussi
+        header("Location: ".VIEW."result.php?form=record&name=".$name."&record=".$record."&pool=".$pool."&race=".$race."&dist=".$dist);
+
+        break;
+    //a faire pour compet
     default:
         break;
 }

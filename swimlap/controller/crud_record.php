@@ -6,10 +6,30 @@
         <label>Nouveau record :</label>
         <input type="text" name="record_new" id="record_new" required/>
         <label>Nom du nageur :</label>
-        <input type="text" name="record_swimmer" id="record_swimmer" required/>
+        <input type="text" name="record_swimmer" id="record_swimmer" class="search_swimmer" required/>
+        <label>Longueur :</label>
+        <select name="record_long">
+            <option value="25">25</option> 
+            <option value="50" selected>50</option>
+            <option value="100">100</option> 
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option> 
+            <option value="500">500</option>
+            <option value="800">800</option> 
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+            <option value="3000">3000</option>
+            <option value="5000">5000</option>
+        </select>
         <label>Type de nage :</label>
-        <input type="text" name="record_swim" id="record_swim" required/>
-        <!--changer le hidden lors de changement-->
+        <select name="record_swim">
+            <option value="Nage Libre">Nage Libre</option> 
+            <option value="Dos" selected>Dos</option>
+            <option value="Brasse">Brasse</option> 
+            <option value="Papillon">Papillon</option>
+            <option value="4 Nages">4 Nages</option>
+        </select>
         <label>Taille du bassin :</label>
         <select name="select_pool">
             <option value="25">25</option> 

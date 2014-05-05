@@ -16,7 +16,10 @@
                             case 'swimmer' :
                                 $chaine = $_GET['name'].' '.$_GET['first'].' ('.$_GET['id'].', '.$_GET['birth'].', '.$_GET['genre'].') a bien été ajouté à la liste.';
                             break;
-                            //a faire pour compet/record
+                            case 'record' :
+                                $chaine = 'En '.$_GET['dist']." ".$_GET['race']." ".$_GET['name']." a comme nouveau record : ".$_GET['record']." (".$_GET['pool'].").";
+                            break;
+                            //a faire pour compet
                             default:
                             break;
                     }?>

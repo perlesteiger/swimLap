@@ -91,7 +91,7 @@ function recoverRecord() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT rac_style, rec_swimtime_25, rec_swimtime_50, swi_lastname FROM t_j_record_rec 
+    $query = 'SELECT rac_style, rac_dist, rec_swimtime_25, rec_swimtime_50, swi_lastname FROM t_j_record_rec 
                 JOIN t_e_swimmer_swi ON rec_swi_id = swi_id
                 JOIN t_e_race_rac ON rec_rac_id = rac_id';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
@@ -99,7 +99,11 @@ function recoverRecord() {
     $list_record = array();
     
     while ($line = pg_fetch_object($result)) {
-        array_push($list_record, $line->swi_lastname." ".$line->rec_swimtime_25." (25) ".$line->rec_swimtime_50." (50) ".$line->rac_style);
+        if (empty($line->rec_swimtime_25)) $pool25 = 'pas de temps enregistré';
+        else $pool25 = $line->rec_swimtime_25;
+        if (empty($line->rec_swimtime_50)) $pool50 = 'pas de temps enregistré';
+        else $pool50 = $line->rec_swimtime_50;
+        array_push($list_record, $line->swi_lastname." : ".$pool25." (25), ".$pool50." (50) en ".$line->rac_dist." ".$line->rac_style);
     }
     
     // Ferme la connexion
@@ -109,19 +113,32 @@ function recoverRecord() {
 }
 
 //ajouter un record
-function addRecord() {
+function addRecord($record,$dist,$name,$race,$pool) {
     
     $dbconn = connect_bdd();
     
-    // Exécution de la requête SQL
-    //faire un select puis un insert
-//    $query = "";
-//    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
-//    
-//    // Ferme la connexion
-//    pg_close($dbconn);  
-//    
-//    return $result;
+    //Recuperation id swimmer  
+    $query_swi = "SELECT swi_id FROM t_e_swimmer_swi 
+                WHERE swi_lastname = '$name'";
+    $result_swi = pg_query($query_swi) or die('Échec de la requête : ' . pg_last_error());
+    
+    $swi = pg_fetch_object($result_swi);
+    
+    //Recuperation id race
+    $query_rac = "SELECT rac_id FROM t_e_race_rac 
+                WHERE rac_style = '$race' AND rac_dist = '$dist'";
+    $result_rac = pg_query($query_rac) or die('Échec de la requête : ' . pg_last_error());
+    
+    $rac = pg_fetch_object($result_rac);
+
+    $query = "INSERT INTO t_j_record_rec (rec_swi_id, rec_rac_id, rec_swimtime_$pool) VALUES ($swi->swi_id, $rac->rac_id, $record)";
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    // Ferme la connexion
+    pg_close($dbconn); 
+    
+    return $result;
+    
 }
 
 //recuperer les competitions
