@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
     <?php include 'var.prepend.php';?>
+    <?php include MODEL.'fonctions_crud.php';?>
     <?php include INCLUDES."head.php"?>
     <BODY>
         <?php include INCLUDES."header.php"?>
@@ -13,6 +14,10 @@
                 <div id="setting-forms">
                     <?php include CONTROLLER."crud_general.php"?>
                     <?php include CONTROLLER."crud_data.php"?>
+                    <?php include CONTROLLER."list_competition.php"?>
+                    <?php include CONTROLLER."list_swimmer.php"?>
+                    <?php include CONTROLLER."list_record.php"?>
+                    
                     <?php include CONTROLLER."crud_competition.php"?>
                     <?php include CONTROLLER."crud_swimmer.php"?>
                     <?php include CONTROLLER."crud_record.php"?>

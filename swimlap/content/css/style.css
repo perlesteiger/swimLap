@@ -6,9 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
+root { display: block; }
 
 body {
     height: 100%;
@@ -19,21 +17,13 @@ body {
     color: #FFF;
 }
 
-.clear {
-    clear: both;
-}
+.clear { clear: both; }
 
-.fleft {
-    float: left;
-}
+.fleft { float: left; }
 
-.fright {
-    float: right;
-}
+.fright { float: right; }
 
-.active {
-    color: #9E0016;
-}
+.active { color: #9E0016; }
 
 header {
     position: fixed;
@@ -45,28 +35,15 @@ header {
     z-index: 10;
 }
 
-header #menu {
-    margin: 2% 0;
-}
+header #menu { margin: 2% 0; }
 
-header #sous-menu {
-    margin: 2%;
-    color: #212121;
-}
+header #sous-menu { margin: 2%; color: #212121; }
 
-header #sous-menu li {
-    display: inline;
-    font-size: 20px;
-}
+header #sous-menu li { display: inline; font-size: 20px; }
 
-header #sous-menu li:hover {
-    color: #9E0016;
-}
+header #sous-menu li:hover { color: #9E0016; }
     
-h3 {
-    font-weight: normal;
-    text-transform: uppercase;
-}
+h3 { font-weight: normal; text-transform: uppercase; }
 
 /*******Icone*********/
 span.icon {
@@ -78,32 +55,18 @@ span.icon {
     margin-right: 5px;
 }
 
-span.stat {
-    background-position: 0 0;
-}
+span.stat { background-position: 0 0; }
 
-span.setting {
-    background-position: -74px 0;
-}
+span.setting { background-position: -74px 0; }
 
-span.stat:hover, span.stat.active {
-    background-position: -37px 0;
-}
+span.stat:hover, span.stat.active { background-position: -37px 0; }
 
-span.setting:hover, span.setting.active {
-    background-position: -111px 0;
-}
+span.setting:hover, span.setting.active { background-position: -111px 0; }
 /********************/
 
-#content {
-    width: 80%;
-    margin: 8% 10% 10%;
-}
+#content { width: 80%; margin: 8% 10% 10%; }
 
-#setting-forms form, #stat-performance, #stat-planning {
-    margin: 2% 15%;
-    display: none;
-}
+#setting-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { margin: 2% 15%; display: none; }
 
 fieldset, .container {
     width: 55%;
@@ -116,27 +79,15 @@ fieldset, .container {
     background: url("../img/background_transparent.png") repeat #48999E;
 }
 
-#stat-performance fieldset, #stat-planning fieldset {
-    width: 65%;
-}
+#stat-performance fieldset, #stat-planning fieldset { width: 65%; }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
+ul { list-style-type: none; padding: 0; }
 
-li {
-    margin: 5px;
-    cursor: pointer;
-}
+li { margin: 5px; cursor: pointer; }
 
-li:hover {
-    color: #212121;
-}
+li:hover { color: #212121; }
 
-#form_data .form_cancel {
-    margin-top: 10px;
-}
+#form_data .form_cancel { margin-top: 10px; }
 
 #setting-forms input:not([type="submit"]), select {
     outline: none;
@@ -167,6 +118,7 @@ input:not([type="submit"]) {
     -o-transition: -o-background 0.2s linear, -o-box-shadow 0.6s linear;
     -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
     transition: background 0.2s linear, box-shadow 0.6s linear;
+    text-align:  center;
 }
 
 .button {
@@ -187,13 +139,11 @@ input:not([type="submit"]) {
     white-space: nowrap;
 }
 
-.button:hover {
-    background-color: #9E0016;
-}
+.button:hover { background-color: #9E0016; }
 
-#import button {
-    background-color: #48999E;
-}
+a.button { height: 20px; font-family: arial; }
+
+#import button { background-color: #48999E; }
 
 #import {
     position:relative;
@@ -215,6 +165,30 @@ input:not([type="submit"]) {
     text-align:right;
 }
 
+#add_swimmer, #add_competition, #add_record { float: right; }
+
+.ac_results { padding: 0px; border: 1px solid black; background-color: #D4DADC; overflow: hidden; z-index: 99999; color: black; }
+.ac_results ul { width: 100%; list-style-position: outside; list-style: none; padding: 0; margin: 0; }
+.ac_results li { margin: 0px; padding: 2px 5px; cursor: default; display: block;
+    /* 
+    if width will be 100% horizontal scrollbar will apear 
+    when scroll mode will be used
+    */
+    /*width: 100%;*/
+    font: menu; font-size: 12px;
+    /* 
+    it is very important, if line-height not setted or setted 
+    in relative units scroll will be broken in firefox
+    */
+    line-height: 16px; overflow: hidden;
+}
+
+.ac_loading { background: white right center no-repeat; }
+
+.ac_odd { background-color: #eee; }
+
+.ac_over { background-color: #9E0016; color: white; }
+
 footer {
     color: #212121;
     position: fixed;
@@ -225,10 +199,11 @@ footer {
     padding: 5px 0;
 }
 
-footer p {
-    margin: 0;
-}
+footer p { margin: 0; }
 
+@media screen and (max-width: 1330px) and (min-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 70%; } }
+@media screen and (max-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 25%; } }
+@media screen and (max-width: 1100px) { #form_distribution fieldset {width: 25%; } }/*trouver pour form*/
 @media screen and (max-width: 1040px) { #content { margin-top: 15%; } }/*trouver pour form*/
 @media screen and (max-width: 690px) { #content { margin-top: 22%; } input:not([type="submit"]) { display: block; } }
 @media screen and (max-width: 580px) { #content { margin-top: 25%; } }

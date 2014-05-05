@@ -1,21 +1,23 @@
-<!--mettre une vue avant avec vue de la liste (modifier/supprimer et un truc ajouter-->
-<!--garder ce formulaaire pour modifier/supprimer-->
+<!--mettre une vue avant avec vue de la liste (truc ajouter)-->
+<!--function recoverSwimmer-->
 <form id="form_swimmer" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <fieldset>
+        <input type="hidden" name="type_form" value="swimmer"/>
         <label>Nom du nageur :</label>
-        <input type="text" id="swimmer_name" required/>
+        <input type="text" name="swimmer_name" id="swimmer_name" required/>
         <label>Prénom du nageur :</label>
-        <input type="text" id="swimmer_firstname" required/>
+        <input type="text" name="swimmer_firstname" id="swimmer_firstname" required/>
+        <label>Id FFNEX du nageur :</label>
+        <input type="text" name="swimmer_id" id="swimmer_id" required/>
          <!--changer le hidden lors de changement-->
         <label>Sexe :</label>
-        <select name="select_pool">
-            <option value="f">Féminine</option> 
-            <option value="m" selected>Masculin</option>
+        <select name="select_sexe">
+            <option value="F">Féminine</option> 
+            <option value="M" selected>Masculin</option>
         </select>
-        <input type="hidden" id="swimmer_sexe"/>
         <label>Date de naissance :</label>
-        <input type="text" id="swimmer_birth" required/>
+        <input type="text" name="swimmer_birth" id="swimmer_birth" required/>
         <input type="submit" class="button" value="Ajouter"/>
-        <button class="button form_cancel">Annuler</button>
+        <a class="button form_cancel">Annuler</a>
     </fieldset>
 </form>

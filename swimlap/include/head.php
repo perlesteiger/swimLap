@@ -9,6 +9,7 @@
     <!-- FIN : FONTS -->
 
     <!-- DEBUT : CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS;?>jquery-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo CSS;?>style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo CSS;?>morris.css" />
     <!-- FIN : CSS -->   
