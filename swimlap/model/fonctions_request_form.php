@@ -1,5 +1,5 @@
 <?php
-include '../view/var.prepend.php';
+include '../var.prepend.php';
 include MODEL.'fonctions_crud.php';
 
 $type = $_POST['type_form'];
@@ -42,7 +42,21 @@ switch ($type) {
         header("Location: ".VIEW."result.php?form=record&name=".$name."&record=".$record."&pool=".$pool."&race=".$race."&dist=".$dist);
 
         break;
-    //a faire pour compet
+    case 'competition':
+        $id = $_POST['competition_id'];
+        $begin = $_POST['competition_begin'];
+        $name = $_POST['competition_name'];
+        $end = $_POST['competition_end'];
+        $city = $_POST['competition_city'];
+        $pool = $_POST['select_pool'];
+        $season = $_POST['competition_season'];
+        
+        $add_competition = addCompetition($id, $name, $begin, $end, $city, $pool, $season);
+
+        //ajouter condition si non reussi
+        header("Location: ".VIEW."result.php?form=competition&name=".$name."&begin=".$begin."&end=".$end."&city=".$city);
+
+        break;
     default:
         break;
 }

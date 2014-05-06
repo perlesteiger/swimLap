@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <HTML>
-    <?php include 'var.prepend.php';?>
+    <?php include '../var.prepend.php';?>
     <?php include MODEL.'fonctions_crud.php';?>
     <?php include INCLUDES."head.php"?>
     <BODY>
@@ -19,7 +19,9 @@
                             case 'record' :
                                 $chaine = 'En '.$_GET['dist']." ".$_GET['race']." ".$_GET['name']." a comme nouveau record : ".$_GET['record']." (".$_GET['pool'].").";
                             break;
-                            //a faire pour compet
+                            case 'competition' :
+                                $chaine = 'La compétition : '.$_GET['name']." (".$_GET['city'].", ".$_GET['begin']." / ".$_GET['end'].") a bien été enregistrée.";
+                            break;
                             default:
                             break;
                     }?>

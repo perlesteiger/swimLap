@@ -31,8 +31,8 @@ $(document).ready ( function () {
         $(this).addClass("active");
         
         //changement contenu
-        $("section").hide();
-        $("section#stat-"+id).show();
+//        $("section").hide();
+//        $("section#stat-"+id).show();
     }); 
     
     $("#data_import").mousemove( function() {

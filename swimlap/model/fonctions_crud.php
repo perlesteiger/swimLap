@@ -147,33 +147,52 @@ function recoverCompetition() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-//    $query = '';
-//    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
-//    
-//    $list_competition = array();
-//    
-//    while ($line = pg_fetch_object($result)) {
-//        array_push($list_competition, $line->." ".$line->);
-//    }
-//    
-//    // Ferme la connexion
-//    pg_close($dbconn);  
-//    
-//    return $list_competition;
+    $query = 'SELECT mee_name, mee_city, mee_start_date, mee_end_date FROM t_e_meeting_mee';
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    $list_competition = array();
+    
+    while ($line = pg_fetch_object($result)) {
+        array_push($list_competition, $line->mee_name." (".$line->mee_city.", du ".$line->mee_start_date." au ".$line->mee_end_date.").");
+    }
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $list_competition;
 }
 
 //ajouter une competition
-function addCompetition() {
+function addCompetition($id,$name,$begin,$end,$city,$pool,$season) {
     
     $dbconn = connect_bdd();
     
-//    // Exécution de la requête SQL
-//    $query = "";
-//    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
-//    
-//    // Ferme la connexion
-//    pg_close($dbconn);  
-//    
-//    return $result;
+  // Exécution de la requête SQL
+    $query = "INSERT INTO t_e_meeting_mee VALUES ('$id', '$name', '$city', '$begin', '$end', '$pool', '$season')";
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $result;
+}
+
+//recuperer les saisons
+function recoverSeason() {
+    
+    $dbconn = connect_bdd();
+    
+    // Exécution de la requête SQL
+    $query = 'SELECT sea_name, sea_id FROM t_e_season_sea';
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    while ($line = pg_fetch_object($result)) {
+        $list_season[$line->sea_id] = $line->sea_name; 
+    }
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $list_season;
 }
 ?>
