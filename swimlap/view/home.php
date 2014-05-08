@@ -1,4 +1,3 @@
-<?php $mode = 'stat'; ?>
 <!DOCTYPE HTML>
 <HTML>
     <?php include "../include/general.php"?>
@@ -6,20 +5,17 @@
         <?php include INCLUDES."header.php"?>
         <div class="clear"></div>
         <div id="content">
-            <!--partie recherche-->
             <div class="fleft" id="content-left">
-                <?php include CONTROLLER."search.php"; ?>                
+                <?php include CONTROLLER."list_swimmer.php"; ?>                
             </div>
-            <!--partie centrale-->
             <div class="fleft" id="content-right">
-                <?php include CONTROLLER."stat_repartition.php"; ?>
-                <?php include CONTROLLER."stat_performance.php"; ?>
                 <?php include CONTROLLER."stat_planning.php"; ?>
             </div>
         </div>
         <?php include INCLUDES."footer.php"?>
         <script>
-            $("header span.stat").addClass('active');
+            $("header span.home").addClass('active');
+            $("#sous-menu-stat").hide();
             $("#sous-menu-setting").hide();
         </script>
     </BODY>

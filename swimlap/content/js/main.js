@@ -3,31 +3,40 @@ $(document).ready ( function () {
     $("header span").find(".active").removeClass("active");
     
     //affichage/retour dans parametre
-    $("#list_setting li").click( function() {
+//    $("#list_setting li").click( function() {
+//       var id = $(this).attr('class');
+//       
+//       $("#list_setting").hide();
+//       $('#section_'+id).show();
+//    });
+    $("#sous-menu-setting li").click( function() {
        var id = $(this).attr('class');
-       
-       $(".container").hide();
-       $('#section_'+id).show();
+
+       $(".section").removeClass("put");
+       $("form").hide();
+       $('#section_'+id).addClass("put");
+       //exception pour data
+       if (id ==="data") $("#form_data").show();
     });
     $(".form_cancel").click( function() {
-        
-       $(".container").show();
-       $('.section').hide();
+       var id = $(this).parents("form").children("input[type='hidden']").val();
+
+       $('#section_'+id).addClass("put");
        $(this).parents("form").hide();
     });
     $(".section button").click( function() {
         var id = $(this).attr('name');
         
-        $(this).parent().hide();
+        $(this).parent().removeClass("put");
         $("#form_"+id).show();
     });
     
     //affichage stat
-    $("#sous-menu li").click( function() {
+    $(".sous-menu li").click( function() {
         var id = $(this).attr('id');
         
         //changement onglet actif
-        $("#sous-menu li").removeClass("active");
+        $(".sous-menu li").removeClass("active");
         $(this).addClass("active");
         
         //changement contenu

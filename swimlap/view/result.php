@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <HTML>
-    <?php include '../var.prepend.php';?>
-    <?php include MODEL.'fonctions_crud.php';?>
-    <?php include INCLUDES."head.php"?>
+    <?php include "../include/general.php"?>
     <BODY>
         <?php include INCLUDES."header.php"?>
         <div class="clear"></div>
         <div id="content">
+            <h4 class="title2">Récapitulatif de l'enregistrement</h4>
             <center>
                 <div class="container">
                     <?php switch ($_GET['form']) {

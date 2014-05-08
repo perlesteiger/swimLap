@@ -1,6 +1,6 @@
 <?php
 
-define("IMG", "../content/img/");
+define("IMG", "../content/images/");
 define("CSS", "../content/css/");
 define("JS", "../content/js/");
 define("MODEL", "../model/");

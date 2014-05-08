@@ -6,6 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
+/*****General*************/
 root { display: block; }
 
 body {
@@ -13,8 +14,8 @@ body {
     margin: 0 auto;
     padding: 0;
     font-family: 'Sniglet', cursive;
-    background: url("../img/background_full.png") repeat #046675;
-    color: #FFF;
+    background: url("../images/background_full.png") repeat #046675;
+    color: #000;
 }
 
 .clear { clear: both; }
@@ -35,19 +36,28 @@ header {
     z-index: 10;
 }
 
-header #menu { margin: 2% 0; }
+header #menu { margin-top: 1%; width: 30%; }
 
-header #sous-menu { margin: 2%; color: #212121; }
+header #menu-lien { margin-left: 60%; }
 
-header #sous-menu li { display: inline; font-size: 20px; }
+header #sous-menu-stat, header #sous-menu-setting { margin: 1%; color: #212121; text-align: right; border-top: 1px solid #9E0016; }
 
-header #sous-menu li:hover { color: #9E0016; }
+header #sous-menu-stat li, header #sous-menu-setting li { display: inline; font-size: 14px; }
+
+header #sous-menu-stat li:hover, header #sous-menu-setting li:hover { color: #9E0016; }
     
 h3 { font-weight: normal; text-transform: uppercase; }
 
+h4 { color: white; text-transform: uppercase; padding: 5px; text-align: center; }
+h4.title1 { background-color: #046675; }
+h4.title2 { background-color: #48999E; }
+
+p { margin: 0; }
+/***************************/
+
 /*******Icone*********/
 span.icon {
-    background-image: url(../img/sprite_icon.png);
+    background-image: url(../images/sprite_icon.png);
     display: block;
     width: 28px;
     height: 28px;
@@ -56,44 +66,46 @@ span.icon {
 }
 
 span.stat { background-position: 0 0; }
-
-span.setting { background-position: -74px 0; }
-
 span.stat:hover, span.stat.active { background-position: -37px 0; }
 
+span.setting { background-position: -74px 0; }
 span.setting:hover, span.setting.active { background-position: -111px 0; }
+
+span.home { background-position: -148px 0; }
+span.home:hover, span.home.active { background-position: -185px 0; }
 /********************/
 
-#content { width: 80%; margin: 8% 10% 10%; }
+#content { position: absolute; width: 80%; margin: 5% 10% 2%; background-color: #FFF; min-height: 545px; }
+#content-left { width: 28%; border-right: 1px solid #000; }
+#content-right { width: 70%; }
 
-#setting-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { margin: 2% 15%; display: none; }
+#setting-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { display: none; }
+#setting-forms .section.put { display: block; }
 
-fieldset, .container {
-    width: 55%;
+form { text-align: center; padding: 5px 20px; }
+
+.container {
     margin: 0;
-    padding: 2% 5%;
-    border: 1px solid #212121;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    background: url("../img/background_transparent.png") repeat #48999E;
+    padding: 5px 20px;
 }
 
 #stat-performance fieldset, #stat-planning fieldset { width: 65%; }
 
+/******Liste****************/
 ul { list-style-type: none; padding: 0; }
 
 li { margin: 5px; cursor: pointer; }
-
-li:hover { color: #212121; }
+.container li { border-bottom: 1px solid #046675; }
+.container li:last-child { border-bottom: none; }
+.container li:hover { color: #046675; }
+/***********************/
 
 #form_data .form_cancel { margin-top: 10px; }
 
 #setting-forms input:not([type="submit"]), select {
     outline: none;
-    display: block;
-    width: 70%;
-    padding: 1%;
+    width: 20%;
+    padding: 0.5%;
     border: 1px solid #212121;
     margin: 1% 0 2%;
     -moz-border-radius: 2px;
@@ -104,6 +116,8 @@ li:hover { color: #212121; }
     -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
     transition: background 0.2s linear, box-shadow 0.6s linear;
 }
+
+#form_search select { width: 60%; margin-left: 20%;}
 
 input:not([type="submit"]) {
     outline: none;
@@ -128,7 +142,7 @@ input:not([type="submit"]) {
     box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.6) inset;
     color: #FFF;
     height: 30px;
-    margin: 0;
+    margin: 10px 0;
     padding: 4px 10px;
     display: inline-block;
     line-height: 20px;
@@ -138,8 +152,8 @@ input:not([type="submit"]) {
     cursor: pointer;
     white-space: nowrap;
 }
-
 .button:hover { background-color: #9E0016; }
+button.add { margin-top: 22px; }
 
 a.button { height: 20px; font-family: arial; }
 
@@ -167,6 +181,7 @@ a.button { height: 20px; font-family: arial; }
 
 #add_swimmer, #add_competition, #add_record { float: right; }
 
+/*********Autocompletion*****************/
 .ac_results { padding: 0px; border: 1px solid black; background-color: #D4DADC; overflow: hidden; z-index: 99999; color: black; }
 .ac_results ul { width: 100%; list-style-position: outside; list-style: none; padding: 0; margin: 0; }
 .ac_results li { margin: 0px; padding: 2px 5px; cursor: default; display: block;
@@ -188,6 +203,7 @@ a.button { height: 20px; font-family: arial; }
 .ac_odd { background-color: #eee; }
 
 .ac_over { background-color: #9E0016; color: white; }
+/**********************************************/
 
 footer {
     color: #212121;
@@ -201,11 +217,14 @@ footer {
 
 footer p { margin: 0; }
 
+/********Responsive***************/
+/*a revoir*/
 @media screen and (max-width: 1330px) and (min-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 70%; } }
 @media screen and (max-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 25%; } }
 @media screen and (max-width: 1100px) { #form_distribution fieldset {width: 25%; } }/*trouver pour form*/
-@media screen and (max-width: 1040px) { #content { margin-top: 15%; } }/*trouver pour form*/
-@media screen and (max-width: 690px) { #content { margin-top: 22%; } input:not([type="submit"]) { display: block; } }
-@media screen and (max-width: 580px) { #content { margin-top: 25%; } }
-@media screen and (max-width: 580px) { #content { margin-top: 40%; } }
-@media screen and (max-width: 330px) { #content { margin-top: 65%; } }
+@media screen and (max-width: 1040px) { #content { margin-top: 10%; } }/*trouver pour form*/
+@media screen and (max-width: 690px) { #content { margin-top: 15%; } input:not([type="submit"]) { display: block; } }
+@media screen and (max-width: 580px) { #content { margin-top: 20%; } }
+@media screen and (max-width: 580px) { #content { margin-top: 35%; } }
+@media screen and (max-width: 330px) { #content { margin-top: 50%; } }
+/**********************************/

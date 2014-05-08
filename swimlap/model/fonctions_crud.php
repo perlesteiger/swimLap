@@ -55,13 +55,13 @@ function recoverSwimmer() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT swi_firstname, swi_lastname FROM t_e_swimmer_swi';
+    $query = 'SELECT swi_firstname, swi_lastname, swi_dateofbirth FROM t_e_swimmer_swi';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     $list_swimmer = array();
     
     while ($line = pg_fetch_object($result)) {
-        array_push($list_swimmer, $line->swi_lastname." ".$line->swi_firstname);
+        array_push($list_swimmer, $line->swi_lastname."|".$line->swi_firstname."|".$line->swi_dateofbirth);
     }
     
     // Ferme la connexion
@@ -91,7 +91,7 @@ function recoverRecord() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT rac_style, rac_dist, rec_swimtime_25, rec_swimtime_50, swi_lastname FROM t_j_record_rec 
+    $query = 'SELECT rac_style, rac_dist, rec_swimtime_25, rec_swimtime_50, swi_lastname, swi_firstname FROM t_j_record_rec 
                 JOIN t_e_swimmer_swi ON rec_swi_id = swi_id
                 JOIN t_e_race_rac ON rec_rac_id = rac_id';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
@@ -103,7 +103,7 @@ function recoverRecord() {
         else $pool25 = $line->rec_swimtime_25;
         if (empty($line->rec_swimtime_50)) $pool50 = 'pas de temps enregistré';
         else $pool50 = $line->rec_swimtime_50;
-        array_push($list_record, $line->swi_lastname." : ".$pool25." (25), ".$pool50." (50) en ".$line->rac_dist." ".$line->rac_style);
+        array_push($list_record, $line->swi_lastname." ".$line->swi_firstname."|".$pool25."|".$pool50."|".$line->rac_dist."|".$line->rac_style);
     }
     
     // Ferme la connexion
@@ -153,7 +153,7 @@ function recoverCompetition() {
     $list_competition = array();
     
     while ($line = pg_fetch_object($result)) {
-        array_push($list_competition, $line->mee_name." (".$line->mee_city.", du ".$line->mee_start_date." au ".$line->mee_end_date.").");
+        array_push($list_competition, $line->mee_name."|".$line->mee_city."|".$line->mee_start_date."|".$line->mee_end_date);
     }
     
     // Ferme la connexion

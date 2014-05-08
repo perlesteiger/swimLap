@@ -1,12 +1,26 @@
 <HEADER>
     <img class="fleft" src="<?php echo IMG;?>logo.png"/>
     <div id="menu" class="fright">
-        <a href="<?php echo VIEW."stats.php";?>" class="fleft"><span class="icon stat"></span></a>
-        <a href="<?php echo VIEW."settings.php";?>" class="fleft"><span class="icon setting"></span></a>
+        <div id="menu-lien">
+            <a href="<?php echo VIEW."home.php";?>" class="fleft"><span class="icon home"></span></a>
+            <a href="<?php echo VIEW."stats.php";?>" class="fleft"><span class="icon stat"></span></a>
+            <a href="<?php echo VIEW."settings.php";?>" class="fleft"><span class="icon setting"></span></a>
+        </div>
+        <div class="clear"></div>
+        
+        <!--lien pour les statistiques-->
+        <ul class="sous-menu" id="sous-menu-stat">
+            <li id="distribution" class="active">Répartition</li>
+            <li id="performance">Performance</li>
+            <li id="planning">Planification</li>
+        </ul>
+        
+        <!--lien pour les parametres-->
+        <ul class="sous-menu" id="sous-menu-setting">
+            <li class="competition active">Compétitions</li>
+            <li class="swimmer">Nageurs</li>
+            <li class="record">Records</li>
+            <li class="data">Fichiers</li>
+        </ul>
     </div>
-    <ul id="sous-menu" class="fright">
-        <li id="distribution" class="active">Répartition</li>
-        <li id="performance">Performance</li>
-        <li id="planning">Planification</li>
-    </ul>
 </HEADER>
