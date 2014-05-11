@@ -1,3 +1,5 @@
+<?php $mode='home'; ?>
+
 <!DOCTYPE HTML>
 <HTML>
     <?php include "../include/general.php"?>

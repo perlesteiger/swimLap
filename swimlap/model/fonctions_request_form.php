@@ -31,12 +31,13 @@ switch ($type) {
         break;
     case 'record':
         $record = $_POST['record_new'];
+        $id_swimmer = $_POST['swi_id'];
         $name = $_POST['record_swimmer'];
         $dist = $_POST['record_long'];
         $race = $_POST['record_swim'];
         $pool = $_POST['select_pool'];
         
-        $add_record = addRecord($record, $dist, $name, $race, $pool);
+        $add_record = addRecord($record, $dist, $id_swimmer, $race, $pool);
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=record&name=".$name."&record=".$record."&pool=".$pool."&race=".$race."&dist=".$dist);

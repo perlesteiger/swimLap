@@ -7,6 +7,7 @@
     <input type="text" name="record_new" id="record_new" required/>
     <div>Nom du nageur :</div>
     <input type="text" name="record_swimmer" id="record_swimmer" class="search_swimmer" required/>
+    <input type="hidden" class="swi_id" name="swi_id"/>
     <div>Longueur :</div>
     <select name="record_long">
         <option value="25">25</option> 

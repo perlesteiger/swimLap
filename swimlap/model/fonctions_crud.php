@@ -113,16 +113,9 @@ function recoverRecord() {
 }
 
 //ajouter un record
-function addRecord($record,$dist,$name,$race,$pool) {
+function addRecord($record,$dist,$id_swim,$race,$pool) {
     
     $dbconn = connect_bdd();
-    
-    //Recuperation id swimmer  
-    $query_swi = "SELECT swi_id FROM t_e_swimmer_swi 
-                WHERE swi_lastname = '$name'";
-    $result_swi = pg_query($query_swi) or die('Échec de la requête : ' . pg_last_error());
-    
-    $swi = pg_fetch_object($result_swi);
     
     //Recuperation id race
     $query_rac = "SELECT rac_id FROM t_e_race_rac 
@@ -131,7 +124,7 @@ function addRecord($record,$dist,$name,$race,$pool) {
     
     $rac = pg_fetch_object($result_rac);
 
-    $query = "INSERT INTO t_j_record_rec (rec_swi_id, rec_rac_id, rec_swimtime_$pool) VALUES ($swi->swi_id, $rac->rac_id, $record)";
+    $query = "INSERT INTO t_j_record_rec (rec_swi_id, rec_rac_id, rec_swimtime_$pool) VALUES ($id_swim, $rac->rac_id, $record)";
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     // Ferme la connexion
@@ -194,5 +187,37 @@ function recoverSeason() {
     pg_close($dbconn);  
     
     return $list_season;
+}
+
+//recuperer les saisons
+function recoverSplits($id_swimmer, $id_competition, $type_course, $id_season) {
+    
+    $dbconn = connect_bdd();
+    
+    // Exécution de la requête SQL
+    $query = 'SELECT res.res_splits, res.res_swim_time, swi.swi_firstname, swi.swi_lastname, mee.mee_name 
+              FROM t_j_result_res res
+                JOIN t_e_event_eve eve ON res.res_eve_id = eve.eve_id
+                JOIN t_e_race_rac rac ON eve.eve_rac_id = rac.rac_id
+                JOIN t_e_meeting_mee mee ON eve.eve_mee_id = mee.mee_id
+                JOIN t_e_swimmer_swi swi ON res.res_swi_id = swi.swi_id
+              WHERE mee_sea_id = "'.$id_season.'"';
+    if (!isset($id_competition))
+             $query .= ' AND eve.eve_mee_id = "'.$id_competition.'"';
+    if (!isset($id_swimmer))
+             $query .= ' AND res.res_swi_id = "'.$id_swimmer.'"';
+    if ($type_course != "toutes")
+             $query .= ' AND rac.rac_style = "'.$type_course.'"';
+                 
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    while ($line = pg_fetch_object($result)) {
+        $list_splits[] = array('nageur'=>$line->swi_lastname." ".$line->swi_firstname, 'rencontre'=>$line->mee_name, 'temps'=>$line->res_splits, 'total'=>$line->res_swim_time); 
+    }
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $list_splits;
 }
 ?>

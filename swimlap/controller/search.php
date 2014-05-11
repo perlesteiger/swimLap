@@ -6,11 +6,12 @@
        <h4 class="title1">Paramètres</h4>
         <form id="form_search" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
             <div>Compétition :</div>
-            <input type="text" class="search_competition" id="search_competition"/>
+            <input type="text" class="search_competition" name="search_competition"/>
             <div>Nageur :</div>
-            <input type="text" class="search_swimmer" id="search_swimmer"/>
+            <input type="text" class="search_swimmer" name="search_swimmer"/>
+            <input type="hidden" class="swi_id" name="swi_id"/>
             <div>Type de course :</div>
-            <select name="record_swim">
+            <select name="type">
                 <option value="Nage Libre">Nage Libre</option> 
                 <option value="Dos" selected>Dos</option>
                 <option value="Brasse">Brasse</option> 

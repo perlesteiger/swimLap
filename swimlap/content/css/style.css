@@ -24,7 +24,7 @@ body {
 
 .fright { float: right; }
 
-.active { color: #9E0016; }
+.active, .selected { color: #9E0016; }
 
 header {
     position: fixed;
@@ -51,6 +51,8 @@ h3 { font-weight: normal; text-transform: uppercase; }
 h4 { color: white; text-transform: uppercase; padding: 5px; text-align: center; }
 h4.title1 { background-color: #046675; }
 h4.title2 { background-color: #48999E; }
+
+h5 { color: #046675; font-size: 16px; margin: 0 }
 
 p { margin: 0; }
 /***************************/
@@ -79,8 +81,8 @@ span.home:hover, span.home.active { background-position: -185px 0; }
 #content-left { width: 28%; border-right: 1px solid #000; }
 #content-right { width: 70%; }
 
-#setting-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { display: none; }
-#setting-forms .section.put { display: block; }
+#setting-forms .section, #stat-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { display: none; }
+#setting-forms .section.put, #stat-forms .section.put { display: block; }
 
 form { text-align: center; padding: 5px 20px; }
 
@@ -117,7 +119,7 @@ li { margin: 5px; cursor: pointer; }
     transition: background 0.2s linear, box-shadow 0.6s linear;
 }
 
-#form_search select { width: 60%; margin-left: 20%;}
+#form_search select { width: 60%; }
 
 input:not([type="submit"]) {
     outline: none;
@@ -178,6 +180,8 @@ a.button { height: 20px; font-family: arial; }
     cursor:pointer;
     text-align:right;
 }
+
+#stat-forms p { font-style: italic; font-size: 13px; }
 
 #add_swimmer, #add_competition, #add_record { float: right; }
 

@@ -12,9 +12,11 @@
             </div>
             <!--partie centrale-->
             <div class="fleft" id="content-right">
-                <?php include CONTROLLER."stat_repartition.php"; ?>
-                <?php include CONTROLLER."stat_performance.php"; ?>
-                <?php include CONTROLLER."stat_planning.php"; ?>
+                <div id="stat-forms">
+                    <?php include CONTROLLER."stat_repartition.php"; ?>
+                    <?php include CONTROLLER."stat_performance.php"; ?>
+                    <?php include CONTROLLER."stat_planning.php"; ?>
+                </div>
             </div>
         </div>
         <?php include INCLUDES."footer.php"?>

@@ -10,9 +10,9 @@
         
         <!--lien pour les statistiques-->
         <ul class="sous-menu" id="sous-menu-stat">
-            <li id="distribution" class="active">Répartition</li>
-            <li id="performance">Performance</li>
-            <li id="planning">Planification</li>
+            <li class="repartition active">Répartition</li>
+            <li class="performance">Performance</li>
+            <li class="planning">Planification</li>
         </ul>
         
         <!--lien pour les parametres-->
