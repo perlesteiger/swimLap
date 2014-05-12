@@ -1,4 +1,3 @@
-<!--recuperation nom du club et pouvoir enregistrer => t_e_club_clu/clu_name-->
 <?php
     $club = recoverClub();
 ?>

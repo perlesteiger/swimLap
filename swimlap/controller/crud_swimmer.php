@@ -1,5 +1,3 @@
-<!--mettre une vue avant avec vue de la liste (truc ajouter)-->
-<!--function recoverSwimmer-->
 <form id="form_swimmer" method="post" action="<?php echo MODEL;?>fonctions_request_form.php">
     <h4 class="title2">Ajouter un nageur</h4>
     <input type="hidden" name="type_form" value="swimmer"/>
@@ -16,7 +14,7 @@
         <option value="M" selected>Masculin</option>
     </select>
     <div>Date de naissance :</div>
-    <input type="text" name="swimmer_birth" id="swimmer_birth" required/><br />
+    <input type="text" name="swimmer_birth" id="swimmer_birth" placeholder="1999-02-14" required/><br />
     <input type="submit" class="button" value="Ajouter"/>
     <a class="button form_cancel">Annuler</a> 
 </form>

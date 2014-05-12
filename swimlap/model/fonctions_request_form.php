@@ -1,6 +1,6 @@
 <?php
 include '../var.prepend.php';
-include MODEL.'fonctions_crud.php';
+include MODEL.'fonctions.inc.php';
 
 $type = $_POST['type_form'];
 
@@ -31,16 +31,14 @@ switch ($type) {
         break;
     case 'record':
         $record = $_POST['record_new'];
-        $id_swimmer = $_POST['swi_id'];
-        $name = $_POST['record_swimmer'];
-        $dist = $_POST['record_long'];
+        $id_swimmer = $_POST['record_swimmer'];
         $race = $_POST['record_swim'];
         $pool = $_POST['select_pool'];
         
-        $add_record = addRecord($record, $dist, $id_swimmer, $race, $pool);
+        $add_record = addRecord($record, $id_swimmer, $race, $pool);
 
         //ajouter condition si non reussi
-        header("Location: ".VIEW."result.php?form=record&name=".$name."&record=".$record."&pool=".$pool."&race=".$race."&dist=".$dist);
+        header("Location: ".VIEW."result.php?form=record&name=".$id_swimmer."&record=".$record."&pool=".$pool."&race=".$race);
 
         break;
     case 'competition':

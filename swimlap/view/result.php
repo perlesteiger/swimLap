@@ -16,7 +16,7 @@
                                 $chaine = $_GET['name'].' '.$_GET['first'].' ('.$_GET['id'].', '.$_GET['birth'].', '.$_GET['genre'].') a bien été ajouté à la liste.';
                             break;
                             case 'record' :
-                                $chaine = 'En '.$_GET['dist']." ".$_GET['race']." ".$_GET['name']." a comme nouveau record : ".$_GET['record']." (".$_GET['pool'].").";
+                                $chaine = 'En '.$_GET['race'].", le nageur avec l'id ".$_GET['name']." a comme nouveau record : ".$_GET['record']." (".$_GET['pool'].").";
                             break;
                             case 'competition' :
                                 $chaine = 'La compétition : '.$_GET['name']." (".$_GET['city'].", ".$_GET['begin']." / ".$_GET['end'].") a bien été enregistrée.";

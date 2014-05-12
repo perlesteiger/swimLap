@@ -2,13 +2,6 @@ $(document).ready ( function () {
    
     $("header span").find(".active").removeClass("active");
     
-    //affichage/retour dans parametre
-//    $("#list_setting li").click( function() {
-//       var id = $(this).attr('class');
-//       
-//       $("#list_setting").hide();
-//       $('#section_'+id).show();
-//    });
     //changer le contenu des parametres
     $("#sous-menu-setting li").click( function() {
        var id = $(this).attr('class');
@@ -19,23 +12,24 @@ $(document).ready ( function () {
        //exception pour data
        if (id ==="data") $("#form_data").show();
     });
+    
     //changer contenu des statistiques
     $("#sous-menu-stat li").click( function() {
        var id = $(this).attr('class');
-       var nageur = $('input[name="swi_id"]').val();
-       var compet = $('input[name="compet_id"]').val();
-       var course = $('input[name="type"]').val();
-       var saison = $('#param-season li.selected').attr('id');
+       var swimmer = $('.search_swimmer').val();
+       var meeting = $('.search_competition').val();
+       var race = $('.search_race').val();
+       var season = $('#param-season li.selected').attr('id');
        
         switch (id) {
             case 'repartition':
-                createRepartition(nageur,compet,course,saison);
+                createRepartition(swimmer,meeting,race,season);
                 break;
             case 'performance':
-                createPerformance(nageur,compet,course,saison);
+                createPerformance(swimmer,meeting,race,season);
                 break;
             case 'planification':
-                createPlanification(nageur,compet,course,saison);
+                createPlanification(swimmer,race,season);
                 break;
         }
 
@@ -57,7 +51,7 @@ $(document).ready ( function () {
        $(this).parents("form").hide();
     });
     
-    //
+    //bouton retour
     $(".section button").click( function() {
         var id = $(this).attr('name');
         
@@ -65,7 +59,7 @@ $(document).ready ( function () {
         $("#form_"+id).show();
     });
     
-    //changr onglet actif
+    //changer onglet actif
     $(".sous-menu li").click( function() {
         var id = $(this).attr('id');
         
@@ -89,44 +83,16 @@ $(document).ready ( function () {
         });
     });
     
-    /*************autocompletion******************/
-    function formatItem(row) {
-        return row[0] + " " + row[1];
-    }
-    function formatResult(row) {
-        return "";
-    }
-
-    //si retour attendu au clic
-    $(".search_swimmer").result(function(event, data, formatted) {	
-        if (data){
-           //recuperation des data[2];
-           var swi_id = data[2];
-           $('.swi_id').val(swi_id);
-        }
+    //pour changement dans recherche
+    $('.search_swimmer').change( function() {
+       if ($(this).val() !== "")
+           $('.search_type option:eq(0)').prop('selected', true);
     });
-    $('.search_swimmer').autocomplete ('../model/recoverSwimmer_autocomplete.php', {
-        max:50,
-        width: 500,
-        matchContains: true,
-        formatItem: formatItem,
-        formatResult: formatResult
+    //pour changement dans recherche
+    $('.search_type').change( function() {
+       if ($(this).val() !== "")
+           $('.search_swimmer option:eq(0)').prop('selected', true);
     });
-    
-    //si retour attendu au clic
-    $(".search_competition").result(function(event, data, formatted) {	
-        if (data){
-           //recuperation des data[2];
-        }
-    });
-    $('.search_competition').autocomplete ('../model/recoverCompetition_autocomplete.php', {
-        max:50,
-        width: 500,
-        matchContains: true,
-        formatItem: formatItem,
-        formatResult: formatResult
-    });
-    /******************************************************/
 });
 
 function createRepartition(nageur,compet,course,saison) {
@@ -137,9 +103,25 @@ function createRepartition(nageur,compet,course,saison) {
         data: "style=repartition&nageur="+nageur+"&compet="+compet+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
         success: function(data) { 
             //Si le php renvoie quelque chose
-            var graph=$.parseJSON(data);
+            var tab=$.parseJSON(data);
             
             //creation div pour chaque nageur ou chaque course
+            if (!tab)
+                $('#pb-repartition').text("La recherche n'a pas abouti");
+            else {
+                $('#pb-repartition').text("");
+                
+                //remplissage des titres
+                var swimmer = $('.search_swimmer option:selected').text();
+                var meeting = $('.search_competition option:selected').text();
+                var race = $('.search_type option:selected').text();
+                
+                $('#repartition-title').text(meeting);
+                if (course === "")
+                    $('#repartition-swim-race').text(swimmer);
+                else if (nageur === "")
+                    $('#repartition-swim-race').text(race);
+            }
             //remplissage pour chaque div, plusieurs donut
             Morris.Donut({
                 element: 'graph-repartition',
