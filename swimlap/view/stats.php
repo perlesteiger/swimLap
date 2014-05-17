@@ -8,14 +8,14 @@
         <div id="content">
             <!--partie recherche-->
             <div class="fleft" id="content-left">
-                <?php include CONTROLLER."search.php"; ?>                
+                <?php include CONTROLLER."controller_search.php"; ?>                
             </div>
             <!--partie centrale-->
             <div class="fleft" id="content-right">
                 <div id="stat-forms">
-                    <?php include CONTROLLER."stat_repartition.php"; ?>
-                    <?php include CONTROLLER."stat_performance.php"; ?>
-                    <?php include CONTROLLER."stat_planning.php"; ?>
+                    <?php include VIEW."stat_repartition.php"; ?>
+                    <?php include VIEW."stat_performance.php"; ?>
+                    <?php include VIEW."stat_planning.php"; ?>
                 </div>
             </div>
         </div>

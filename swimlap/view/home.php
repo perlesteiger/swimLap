@@ -8,10 +8,10 @@
         <div class="clear"></div>
         <div id="content">
             <div class="fleft" id="content-left">
-                <?php include CONTROLLER."list_swimmer.php"; ?>                
+                <?php include CONTROLLER."controller_list_swimmer.php"; ?>                
             </div>
             <div class="fleft" id="content-right">
-                <?php include CONTROLLER."stat_planning.php"; ?>
+                <?php include VIEW."stat_planning.php"; ?>
             </div>
         </div>
         <?php include INCLUDES."footer.php"?>

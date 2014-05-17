@@ -52,7 +52,7 @@ h4 { color: white; text-transform: uppercase; padding: 5px; text-align: center; 
 h4.title1 { background-color: #046675; }
 h4.title2 { background-color: #48999E; }
 
-h5 { color: #046675; font-size: 16px; margin: 0 }
+h5 { color: #046675; font-size: 16px; margin: 0; text-transform: uppercase; }
 
 p { margin: 0; }
 /***************************/
@@ -84,7 +84,7 @@ span.home:hover, span.home.active { background-position: -185px 0; }
 #setting-forms .section, #stat-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { display: none; }
 #setting-forms .section.put, #stat-forms .section.put { display: block; }
 
-form { text-align: center; padding: 5px 20px; }
+form, #form_search { text-align: center; padding: 5px 20px; }
 
 .container {
     margin: 0;
@@ -92,6 +92,9 @@ form { text-align: center; padding: 5px 20px; }
 }
 
 #stat-performance fieldset, #stat-planning fieldset { width: 65%; }
+
+#repartition-swim-race span, #performance-swim-race span, #planning-swim-race span { background-color: #9E0016; color: #FFF; padding: 0 5px 2px; margin-right: 10px  }
+#repartition-swim-race, #performance-swim-race, #planning-swim-race { margin: 10px; border-top: #9e0016 1px solid; }
 
 /******Liste****************/
 ul { list-style-type: none; padding: 0; }
@@ -185,6 +188,49 @@ a.button { height: 20px; font-family: arial; }
 
 #add_swimmer, #add_competition, #add_record { float: right; }
 
+<<<<<<< HEAD
+/*Morris*/
+.morris-hover {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: rgba(254,254,254,0.8);
+    padding: 10px;
+    border: 2px solid #d2d2d2;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.morris-hover-row-label { font-family: 'Sniglet', sans-serif; color:#3d3d3d; text-transform: uppercase; }
+
+.donuts, .donuts svg { width: 150px; height: 150px; }
+.donuts { float: left; }
+.donuts svg text tspan { font-size: 12px; }
+.donuts path { stroke: #046675; stroke-width: 2px; }
+
+.graph-div { 
+    display: table; 
+    table-layout: fixed; 
+    border-collapse: separate; 
+    border-spacing: 0 8px; 
+    width: 100%; 
+    border-radius: 8px; 
+}
+.graph-title, .graph-content { 
+    display: table-cell; 
+    vertical-align: top; 
+    height: 100%; 
+    width: 25%; 
+    margin: 2%; 
+    padding: 3% 1%;
+}
+.graph-title { width: 30%; background-color: #48999E; text-align: center; color: white; padding: 12% 0; font-size: 20px; }
+.graph-content { width: 70%; background-color: #D4DADC; }
+/**********/
+
+=======
+>>>>>>> 8462b232915d8d592e5f4fa2f8c6f389c1959026
 footer {
     color: #212121;
     position: fixed;

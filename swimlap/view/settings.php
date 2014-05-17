@@ -9,23 +9,20 @@
         <div id="content">
             <!--partie recherche-->
             <div class="fleft" id="content-left">
-                <?php include CONTROLLER."search.php"; ?>                
+                <?php include CONTROLLER."controller_search.php"; ?>                
             </div>
             <!--partie centrale-->
             <div class="fleft" id="content-right">
-<!--                <div class="container">
-                    <?php //include INCLUDES."list_setting.php"?>
-                </div>-->
                 <div id="setting-forms">
-                    <?php include CONTROLLER."crud_general.php"?>
-                    <?php include CONTROLLER."crud_data.php"?>
-                    <?php include CONTROLLER."list_competition.php"?>
-                    <?php include CONTROLLER."list_swimmer.php"?>
-                    <?php include CONTROLLER."list_record.php"?>
+                    <?php include CONTROLLER."controller_add_general.php"?>
+                    <?php include CONTROLLER."controller_import_export.php"?>
+                    <?php include CONTROLLER."controller_list_competition.php"?>
+                    <?php include CONTROLLER."controller_list_swimmer.php"?>
+                    <?php include CONTROLLER."controller_list_record.php"?>
                     
-                    <?php include CONTROLLER."crud_competition.php"?>
-                    <?php include CONTROLLER."crud_swimmer.php"?>
-                    <?php include CONTROLLER."crud_record.php"?>
+                    <?php include CONTROLLER."controller_add_competition.php"?>
+                    <?php include CONTROLLER."controller_add_swimmer.php"?>
+                    <?php include CONTROLLER."controller_add_record.php"?>
                 </div>
             </div>
         </div>
